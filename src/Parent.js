@@ -6,10 +6,15 @@ function Parent() {
   const randomColor = getRandomColor();
   const [color, setColor] = useState(randomColor);
 
+  function handleChangeColor() {
+    const newRandomcolor = getRandomColor();
+    setColor(newRandomcolor);
+  }
+
   return (
     <div className="parent" style={{ backgroundColor: color }}>
-      <Child />
-      <Child />
+      <Child onChangeColor={handleChangeColor} />
+      <Child onChangeColor={handleChangeColor}/>
     </div>
   );
 }
